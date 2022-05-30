@@ -24,7 +24,7 @@ class EventService
     public function index(Request $request): View
     {
         if(URL::current() == route('dashboard.events.index'))
-            return view('index');
+            return view('dashboard.events.index');
         return view('index');
     }
 
