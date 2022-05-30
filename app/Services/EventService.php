@@ -18,13 +18,10 @@ class EventService
     /**
      * Display a listing of the resource.
      *
-     * @param   Request $request
      * @return  View
      */
-    public function index(Request $request): View
+    public function index(): View
     {
-        if(URL::current() == route('dashboard.events.index'))
-            return view('dashboard.events.index');
         return view('index');
     }
 

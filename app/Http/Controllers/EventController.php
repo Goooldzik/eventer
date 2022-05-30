@@ -28,12 +28,11 @@ class EventController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param   Request $request
      * @return  View
      */
-    public function index(Request $request): View
+    public function index(): View
     {
-        return $this->eventService->index($request);
+        return $this->eventService->index();
     }
 
     /**
