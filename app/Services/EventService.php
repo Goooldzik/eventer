@@ -9,17 +9,22 @@ use App\Models\Event;
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\URL;
 
 class EventService
 {
     /**
      * Display a listing of the resource.
      *
+     * @param   Request $request
      * @return  View
      */
-    public function index(): View
+    public function index(Request $request): View
     {
+        if(URL::current() == route('dashboard.events.index'))
+            return view('index');
         return view('index');
     }
 
