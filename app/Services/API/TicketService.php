@@ -7,6 +7,7 @@ namespace App\Services\API;
 use App\Http\Requests\TicketRequest;
 use App\Models\Event;
 use App\Models\Ticket;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -50,6 +51,9 @@ class TicketService
     {
         try {
 
+            if(Carbon::now()->timestamp > $ticket->expire_at->timestamp)
+                return throw new Exception('Niestety, ale minął czas możliwy na anulowanie biletu.');
+
             $ticket->delete();
 
             return response()
@@ -63,7 +67,7 @@ class TicketService
             return response()
                 ->json([
                     'status' => 'error',
-                    'message' => (App::isProduction()) ? 'Coś poszło nie tak przy usunięciu rezerwacji. Jeżeli błąd będzie się powtarzać, skontaktuj się z supportem!' : $exception->getMessage()
+                    'message' => $exception->getMessage()
                 ]);
 
         }
