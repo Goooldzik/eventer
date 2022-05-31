@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Helpers\PDF;
 use App\Models\Ticket;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -34,6 +35,7 @@ class TicketBookConfirmMail extends Mailable
     {
         return $this
             ->from('admin@eventer.test')
+            ->attachData(PDF::generateBookTicketPDF($this->ticket), "{$this->ticket->ticket_number}.pdf")
             ->view('mails.confirm-book-ticket', [
                 'ticket' => $this->ticket
             ]);
