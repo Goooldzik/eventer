@@ -26,6 +26,7 @@ class EventRequest extends FormRequest
         return [
             'title' => 'required|string|min:3|max:255',
             'places' => 'required|numeric|min:1',
+            'description' => 'required|string|min:32|max:8192',
             'start_at' => 'required|date'
         ];
     }
