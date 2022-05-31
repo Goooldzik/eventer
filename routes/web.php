@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\TicketController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Http\Request;
@@ -18,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/{event}', [EventController::class, 'show'])->name('events.show');
+
+Route::get('/book-off/{ticket}', [BookController::class, 'bookOffTicketForm'])->name('bookOffTicketForm');
 
 Auth::routes();
 
