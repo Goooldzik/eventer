@@ -4,6 +4,7 @@ use App\Http\Controllers\API\TicketController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,5 +36,7 @@ Route::prefix('dashboard')
         Route::resource('events', EventController::class)->except([
             'show'
         ]);
+
+        Route::resource('users', UserController::class);
 
     });
