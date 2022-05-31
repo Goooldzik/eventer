@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('email');
             $table->string('name');
             $table->string('last_name');
-            $table->timestamp();
             $table->timestamps();
         });
     }

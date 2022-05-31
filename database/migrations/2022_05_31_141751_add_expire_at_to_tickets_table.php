@@ -15,7 +15,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('tickets', function (Blueprint $table) {
-            $table->timestamp('expire_at')->nullable()->default(Carbon::parse(now())->addHours(24)->format('Y-m-d H:i:s'));
+            $table->timestamp('expire_at')->nullable()->default(null);
         });
     }
 
