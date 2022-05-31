@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/{event}', [EventController::class, 'show'])->name('events.show');
 
 Auth::routes();
 
@@ -27,6 +28,8 @@ Route::prefix('dashboard')
     ->middleware(['auth', 'role:Administrator'])
     ->group(function () {
 
-        Route::resource('events', EventController::class);
+        Route::resource('events', EventController::class)->except([
+            'show'
+        ]);
 
     });
