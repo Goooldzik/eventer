@@ -53,7 +53,7 @@
                 error: function (response) {
                     Swal.fire({
                         icon: response.status,
-                        text: response.message
+                        text: response.responseJSON.message
                     })
                 }
             });
