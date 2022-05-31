@@ -17,6 +17,8 @@ class Ticket extends Model
         'email', 'name', 'last_name'
     ];
 
+    protected $dates = ['expire_at'];
+
     /**
      * @return  string
      */

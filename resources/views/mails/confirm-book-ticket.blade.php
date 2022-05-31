@@ -44,7 +44,16 @@
             </div>
             <div class="row mb-3">
                 <div class="col-sm-12">
-                    <a href="{{ route('bookOffTicketForm', $ticket) }}" class="btn btn-primary">Anuluj rezerwację</a>
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <a href="{{ route('bookOffTicketForm', $ticket) }}" class="btn btn-primary">Anuluj rezerwację</a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <span class="text-danger">Możesz anulować rezerwację do {{ $ticket->expire_at }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
