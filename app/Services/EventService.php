@@ -22,7 +22,9 @@ class EventService
      */
     public function index(): View
     {
-        return view('index');
+        return view('dashboard.events.index', [
+            'events' => Event::query()->paginate(10)
+        ]);
     }
 
     /**
@@ -72,6 +74,13 @@ class EventService
     public function show(Event $event): View
     {
         return view('events.show', [
+            'event' => $event
+        ]);
+    }
+
+    public function adminShow(Event $event): View
+    {
+        return view('dashboard.events.show', [
             'event' => $event
         ]);
     }
@@ -127,6 +136,7 @@ class EventService
     {
         try {
 
+            $event->tickets()->delete();
             $event->delete();
 
             return response()->json([

@@ -67,6 +67,11 @@ class EventController extends Controller
         return $this->eventService->show($event);
     }
 
+    public function adminShow(Event $event): View
+    {
+        return $this->eventService->adminShow($event);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
