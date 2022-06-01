@@ -11,6 +11,21 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a href="{{ route('privacy-policy') }}" class="nav-link">Polityka prywatności</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Podstrony
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                            @foreach($pages as $page)
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('pages.show', $page) }}">{{ $page->title }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
