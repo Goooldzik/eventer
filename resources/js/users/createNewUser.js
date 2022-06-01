@@ -9,8 +9,8 @@ let createNewUser = () => {
         url: createNewUserUrl,
         method: 'POST',
         data: {
-            name: $('#title').val(),
-            email: $('#content').val(),
+            name: $('#name').val(),
+            email: $('#email').val(),
             password: $('#password').val(),
             password_confirmation: $('#password-confirm').val()
         },
