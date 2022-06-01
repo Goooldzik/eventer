@@ -26,56 +26,17 @@
 
     <div class="row mb-3">
         <div class="col-sm-12">
-            <button type="button" class="btn btn-danger book-off">Usuń rezerwacje</button>
+            <button type="button" class="btn btn-danger book-off" data-id="{{ $ticket->ticket_number }}">Usuń rezerwacje</button>
         </div>
     </div>
 @endsection
 
 @section('js-text')
     <script>
-        let url = '{{ url('api/book-off') }}/{{ $ticket->ticket_number }}'
+        let bookOffUrl = '{{ url('api/book-off') }}/'
     </script>
+@endsection
 
-    <script>
-        let bookOff = () => {
-            $.ajax({
-                method: 'POST',
-                url: url,
-
-                success: function (response) {
-                    Swal.fire({
-                        icon: response.status,
-                        text: response.message
-                    }).then((result) => {
-                        window.location.href = '/'
-                    })
-                },
-                error: function (response) {
-                    Swal.fire({
-                        icon: response.status,
-                        text: response.responseJSON.message
-                    })
-                }
-            });
-        }
-
-        $(function () {
-            $('.book-off').click(function () {
-                Swal.fire({
-                    title: 'Potwierdź',
-                    text: "Czy na pewno chcesz usunąć rezerwację?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Tak, usuń!',
-                    cancelButtonText: 'Nie, nie usuwaj!',
-                    reverseButtons: true
-                }).then((result) => {
-                    if(result.isConfirmed)
-                    {
-                        bookOff()
-                    }
-                })
-            })
-        })
-    </script>
+@section('js-files')
+    <script src="{{ asset('js/tickets/book-off.js') }}"></script>
 @endsection
