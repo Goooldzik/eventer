@@ -23,8 +23,10 @@
         @yield('content')
     </div>
 
+    @yield('modals')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/chart.js') }}"></script>
     @yield('js-text')
     @yield('js-files')
 </body>
