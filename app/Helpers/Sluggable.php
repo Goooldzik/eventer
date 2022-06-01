@@ -10,6 +10,6 @@ class Sluggable
 {
     public static function generateSlug(string $title): string
     {
-        return Randomizer::generateString() . Str::slug('-'.$title);
+        return Randomizer::generateString() . '-' . Str::slug($title);
     }
 }
