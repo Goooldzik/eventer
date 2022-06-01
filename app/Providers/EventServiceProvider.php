@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Models\Event;
+use App\Models\Page;
 use App\Models\Ticket;
 use App\Observers\EventObserver;
+use App\Observers\PageObserver;
 use App\Observers\TicketObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -32,5 +34,6 @@ class EventServiceProvider extends ServiceProvider
     {
         Event::observe(EventObserver::class);
         Ticket::observe(TicketObserver::class);
+        Page::observe(PageObserver::class);
     }
 }
