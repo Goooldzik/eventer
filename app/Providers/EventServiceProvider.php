@@ -5,9 +5,11 @@ namespace App\Providers;
 use App\Models\Event;
 use App\Models\Page;
 use App\Models\Ticket;
+use App\Models\User;
 use App\Observers\EventObserver;
 use App\Observers\PageObserver;
 use App\Observers\TicketObserver;
+use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -38,8 +40,13 @@ class EventServiceProvider extends ServiceProvider
             $view->with('user', Auth::user());
         });
 
+        View::composer('*', function ($view) {
+            $view->with('pages', Page::all());
+        });
+
         Event::observe(EventObserver::class);
         Ticket::observe(TicketObserver::class);
         Page::observe(PageObserver::class);
+        User::observe(UserObserver::class);
     }
 }
