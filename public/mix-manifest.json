@@ -1,4 +1,14 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/events/changeEventDate.js": "/js/events/changeEventDate.js",
+    "/js/events/deleteEvent.js": "/js/events/deleteEvent.js",
+    "/js/events/createEvent.js": "/js/events/createEvent.js",
+    "/js/pages/createPage.js": "/js/pages/createPage.js",
+    "/js/pages/updatePage.js": "/js/pages/updatePage.js",
+    "/js/tickets/bookTicket.js": "/js/tickets/bookTicket.js",
+    "/js/tickets/book-off.js": "/js/tickets/book-off.js",
+    "/js/users/createNewUser.js": "/js/users/createNewUser.js",
+    "/js/users/updateUser.js": "/js/users/updateUser.js",
+    "/css/app.css": "/css/app.css",
+    "/js/chart.js": "/js/chart.js"
 }

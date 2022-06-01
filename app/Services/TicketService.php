@@ -22,7 +22,7 @@ class TicketService
     public function index(): View
     {
         return view('dashboard.tickets.index', [
-            'events' => Event::query()->paginate(10)
+            'tickets' => Ticket::query()->paginate(10)
         ]);
     }
 
@@ -89,7 +89,7 @@ class TicketService
      */
     public function edit(Ticket $ticket): View
     {
-        return view('dashboard.ticket.edit', [
+        return view('dashboard.tickets.edit', [
             'ticket' => $ticket
         ]);
     }
