@@ -12,7 +12,7 @@ class UserObserver
      * @param   User $user
      * @return  void
      */
-    public function created(User $user)
+    public function creating(User $user)
     {
         $user->assignRole('Administrator');
     }
