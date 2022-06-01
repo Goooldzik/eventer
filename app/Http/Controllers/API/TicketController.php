@@ -37,12 +37,11 @@ class TicketController extends Controller
     }
 
     /**
-     * @param   Event $event
      * @param   Ticket $ticket
      * @return  JsonResponse
      */
-    public function bookOffTicket(Event $event, Ticket $ticket): JsonResponse
+    public function bookOffTicket(Ticket $ticket): JsonResponse
     {
-        return $this->ticketService->bookOffTicket($event, $ticket);
+        return $this->ticketService->bookOffTicket($ticket);
     }
 }

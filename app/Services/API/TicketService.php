@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class TicketService
@@ -43,7 +44,6 @@ class TicketService
     }
 
     /**
-     * @param   Event $event
      * @param   Ticket $ticket
      * @return  JsonResponse
      */
