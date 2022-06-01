@@ -28,11 +28,13 @@ Route::get('/book-off/{ticket}', [BookController::class, 'bookOffTicketForm'])->
 
 Route::get('/page/{page}', [PageController::class, 'show'])->name('pages.show');
 
-Auth::routes();
+Route::view('/privacy-policy', 'pages.privacy-policy')->name('privacy-policy');
+
+Auth::routes(['register' => false]);
 
 Route::prefix('dashboard')
     ->name('dashboard.')
-    //->middleware(['auth', 'role:Administrator'])
+    ->middleware(['auth', 'role:Administrator'])
     ->group(function () {
 
         Route::get('/', [HomeController::class, 'index'])->name('index');
