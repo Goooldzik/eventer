@@ -21,8 +21,9 @@ class DatabaseSeeder extends Seeder
         Event::factory(10)->create()->each(function ($event) {
             Ticket::factory(10)->create(['event_id' => $event->id]);
         });
-        User::factory(10)->create();
 
         $this->call(RoleSeeder::class);
+
+        User::factory(10)->create();
     }
 }
