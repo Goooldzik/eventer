@@ -11,6 +11,8 @@ use App\Observers\TicketObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -32,6 +34,10 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer('dashboard.*', function ($view) {
+            $view->with('user', Auth::user());
+        });
+
         Event::observe(EventObserver::class);
         Ticket::observe(TicketObserver::class);
         Page::observe(PageObserver::class);
