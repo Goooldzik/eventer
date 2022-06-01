@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Event;
+use App\Models\Page;
+use App\Models\Ticket;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Page::factory(10)->create();
+        Event::factory(10)->create()->each(function ($event) {
+            Ticket::factory(10)->create(['event_id' => $event->id]);
+        });
+
         $this->call(RoleSeeder::class);
     }
 }
